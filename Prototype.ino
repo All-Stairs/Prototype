@@ -159,19 +159,6 @@ void midiNoteOn(uint8_t chan, uint8_t n, uint8_t vel)
   VS1053_MIDI.write(vel);
 }
 
-void multiNoteOn(uint8_t chan, uint8_t m, uint8_t n, uint8_t vel)
-{
-  if (chan > 15) return;
-  if (n > 127) return;
-  if (m > 127) return;
-  if (vel > 127) return;
-  
-  VS1053_MIDI.write(MIDI_NOTE_ON | chan);
-  VS1053_MIDI.write(m);
-  VS1053_MIDI.write(n);
-  VS1053_MIDI.write(vel);
-}
-
 void midiNoteOff(uint8_t chan, uint8_t n, uint8_t vel) 
 {
   if (chan > 15) return;
@@ -183,15 +170,3 @@ void midiNoteOff(uint8_t chan, uint8_t n, uint8_t vel)
   VS1053_MIDI.write(vel);
 }
 
-void multiNoteOff(uint8_t chan, uint8_t m, uint8_t n, uint8_t vel)
-{
-  if (chan > 15) return;
-  if (n > 127) return;
-  if (m > 127) return;
-  if (vel > 127) return;
-  
-  VS1053_MIDI.write(MIDI_NOTE_OFF | chan);
-  VS1053_MIDI.write(m);
-  VS1053_MIDI.write(n);
-  VS1053_MIDI.write(vel);
-}
